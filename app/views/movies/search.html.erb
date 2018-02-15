@@ -23,9 +23,15 @@
   	<% @movies.each do |movie| %> 
 
     	<tr>
-    	  <td align="center" style="max-width: 200px;">
-    	  	<img src = <%= @img + movie.poster_path %> style="max-width:25%; max-height:25%;">
-    	  </td>
+    		<% if movie.poster_path == nil %>
+    			<td align="center" style="max-width: 200px;">
+    				<p>no image</p>
+    			</td>
+    		<% else %>
+    	  	<td align="center" style="max-width: 200px;">
+    	  		<img src = <%= @img + movie.poster_path %> style="max-width:25%; max-height:25%;">
+    	  	</td>
+    	  <% end %>
       	<td style="max-width: 100px;">
       		<%= movie.title %>		
       	</td>
@@ -34,7 +40,7 @@
         <td></td>
         <td></td>    
     	</tr>
-    	
+
     <% end %>
 
 	</table>
